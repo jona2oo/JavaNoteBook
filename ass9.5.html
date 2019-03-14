@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muisevents...</title>
+    <style>
+        #divBox{
+            height:150px;
+            width:350px;
+            border:2px solid black;
+        }
+        #divCoords{
+            height:30px;
+            width:350px;
+            border:2px solid black;
+            margin-top: 4px;
+        }
+
+    </style>
+</head>
+<body>
+<p>mouseover en mousout events...</p>
+<div id="divBox"></div>
+<div id="divCoords"></div>
+<div id="divResult"></div>
+<script>
+// voer je script uit zodra de pagina helemaal geladen is...
+    window.onload = function() {
+        var divResult = document.getElementById('divResult'); //cachen element
+        var box = document.getElementById('divBox'); //cachen element
+        var coords = document.getElementById('divCoords'); //cachen element
+        // event handler onmousover afvangen
+        box.onmouseover = function() {
+            divResult.innerHTML += 'De muis is nu in de Box <br>';
+        };
+        // event handler onmouseout afvangen
+        box.onmouseout = function() {
+            divResult.innerHTML += 'De muis heeft de Box weer verlaten <br>';
+        };
+        // functie om mousemove (binnen de box) af te vangen.
+        // de coordinaten worden meegegeven in het event-object als parameter.
+        box.onmousemove = function (e) {
+            coords.innerHTML = 'Coordinaten: X : ' + e.clientX + ', Y: ' + e.clientY;
+        };
+    } // einde window.onload
+</script>
+
+</body>
+</html>

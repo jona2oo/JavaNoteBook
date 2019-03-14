@@ -1,4 +1,5 @@
 function translator(input, output) {
-    if (input.value.length !== 0)
-        output.innerText = input.value.slice(-1).charCodeAt(0);
+
+    let result = input.value.split("").map(c => c.charCodeAt(0));
+    output.innerText = result.join(", ");
 }
